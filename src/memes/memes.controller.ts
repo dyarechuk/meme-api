@@ -11,9 +11,11 @@ export class MemesController {
   constructor(private readonly memesService: MemesService) {}
 
   @Get()
-  findAll(@Query() query: QueryMemesDto): Promise<GetMemeDto[]> {
+  async findAll(@Query() query: QueryMemesDto): Promise<GetMemeDto[]> {
     const { sort = SortField.ID, order = SortOrder.ASC } = query;
-    return this.memesService.findAll(sort, order);
+    const object = await this.memesService.findAll(sort, order);
+    console.log('', object);
+    return object;
   }
 
   @Patch(':id')

@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "Meme" ALTER COLUMN "likes" SET DEFAULT 0;
