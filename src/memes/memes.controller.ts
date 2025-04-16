@@ -1,13 +1,4 @@
-import {
-  Controller,
-  Get,
-  Body,
-  Patch,
-  Param,
-  Query,
-  Ip,
-  Req,
-} from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Query, Ip, Req } from '@nestjs/common';
 import { MemesService } from './memes.service';
 import { GetMemeDto } from './dto/get-meme-dto';
 import { UpdateMemeDto } from './dto/update-meme.dto';
@@ -28,12 +19,8 @@ export class MemesController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() data: UpdateMemeDto,
-    @Req() req: Request
-  ): Promise<Meme> {
-    console.log('ip', req.rawHeaders['True-Client-IP']);
+  update(@Param('id') id: string, @Body() data: UpdateMemeDto, @Req() req: Request): Promise<Meme> {
+    console.log('ip', req.rawHeaders['x-forwarded-for'] || req.socket.remoteAddress);
 
     return this.memesService.update(+id, data);
   }
