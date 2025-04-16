@@ -55,13 +55,19 @@ cp .env.example .env
 # Update DATABASE_URL
 ```
 
-### 4. Run migrations
+### 4. Run seed
+
+```bash
+ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts
+```
+
+### 5. Run migrations
 
 ```bash
 npx prisma migrate dev
 ```
 
-### 5. Start the server
+### 6. Start the server
 
 ```bash
 npm run start:dev
