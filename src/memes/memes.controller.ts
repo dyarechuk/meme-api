@@ -33,7 +33,7 @@ export class MemesController {
     @Body() data: UpdateMemeDto,
     @Req() req: Request
   ): Promise<Meme> {
-    console.log('ip', req.rawHeaders['true-client-ip']);
+    console.log('ip', req.rawHeaders['True-Client-IP']);
 
     return this.memesService.update(+id, data);
   }
