@@ -38,6 +38,7 @@ export class MemesController {
     const realIp = xForwardedFor?.split(',')[0] || ip;
 
     console.log('Client IP:', realIp);
+    console.log('IP', ip);
 
     return this.memesService.update(+id, data);
   }
