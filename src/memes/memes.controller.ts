@@ -20,7 +20,7 @@ export class MemesController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() data: UpdateMemeDto, @Req() req: Request): Promise<Meme> {
-    console.log('ip', req.ip);
+    console.log('ip', req);
 
     return this.memesService.update(+id, data);
   }
