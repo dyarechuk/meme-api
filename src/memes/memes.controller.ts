@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Patch, Param, Query } from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Query, Ip } from '@nestjs/common';
 import { MemesService } from './memes.service';
 import { GetMemeDto } from './dto/get-meme-dto';
 import { UpdateMemeDto } from './dto/update-meme.dto';
@@ -19,7 +19,9 @@ export class MemesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() data: UpdateMemeDto): Promise<Meme> {
+  update(@Param('id') id: string, @Body() data: UpdateMemeDto, @Ip() ip): Promise<Meme> {
+    console.log('ip', ip);
+    
     return this.memesService.update(+id, data);
   }
 }
