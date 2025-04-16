@@ -80,11 +80,13 @@ http://localhost:3000/api
 
 ## 🧱 Folder Structure
 
+```
 src/
 ├── memes/              # Meme module (controller, service, dto)
 ├── common/enums/       # Shared enums like SortField, SortOrder
 ├── prisma.service.ts   # Prisma client wrapper
 └── main.ts             # App bootstrap
+```
 
 ---
 
